@@ -18,7 +18,7 @@ ITW（Information Technology Workshop）由两部分组成：
 		3. putty使用
 		4. rsa密钥
 		5. git基础
-	2. [login controller](login/READMD.md)：
+	2. [login controller](login/README.md)：
 		1. 安全问题：脱库与加盐
 		2. 摘要与哈希：md5、SHA（Secure Hash Algorithm）...
 		3. jason、yaml的使用
