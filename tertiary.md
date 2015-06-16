@@ -14,7 +14,7 @@ IT类高教版
 * 任务设计者：task designer
 * 课程提供者：course provider
 	* 讲师lecturer
-* 助教：teaching assistant（可能来自课程设计者或）
+* 助教：teaching assistant（可能来自课程设计者或实训主任）
 
 ###资产清单
 1. 记账单位
