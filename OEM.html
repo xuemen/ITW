@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <title>Workshop定制</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: Georgia, "Times New Roman", 
+             "Microsoft YaHei", "微软雅黑", 
+             STXihei, "华文细黑", 
+             serif;
+        font-weight: normal;
+      }
+      h1, h2, h3 {
+        margin-bottom: 0;
+      }
+      .remark-slide-content h1 { font-size: 3em; }
+      .remark-slide-content h2 { font-size: 2em; }
+      .remark-slide-content h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        background: #e7e8e2;
+        border-radius: 5px;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .remark-code-line-highlighted     { background-color: #373832; }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
+
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h3:last-of-type, .left-column h4:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# 实训平台定制
+### 在线实践|自动测试|实时报告
+
+---
+class: center, middle, inverse
+#测试框架
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+]
+.right-column[
+<img src="img/student.submit.png" width=512></img>
+]
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+#### 模式一
+]
+.right-column[
+###ITW
+
+```xml
+*	<script src="http://192.168.3.4/static/js/1.js"></script>
+	<script type="text/javascript">
+*	test();
+
+	<!-- 练习开始 -->
+		function add(a,b){
+			return a+b;
+		}
+
+	<!-- 练习结束 -->
+	</script>	
+```
+
+###learnyounode
+```javascript
+    npm install learnyounode
+*   learnyounode verify program.js
+```
+]
+???
+learnyounode模式没有配套的协作和分配规则，靠开源社区的义务工作，作者积极性不高。
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+#### 模式一
+#### 模式二
+]
+.right-column[
+###ITW
+学生提交代码的页面：
+```xml
+  <form action="http://192.168.3.4/submit" method="post">
+    ......
+  </form>
+```
+代码接收服务器，golang部分：
+```javascript
+b, _ := clearsign.Decode([]byte(r.FormValue("studentcode")))
+...
+t.Execute(w, template.JS(b.Plaintext))
+```
+代码接受服务器，测试页面模版html部分：
+```xml
+  <script type="text/javascript">
+    ......
+*   {{.}}
+  </script>
+```
+
+]
+
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+#### 模式一
+#### 模式二
+#### 模式特点
+]
+.right-column[
+##@ Javascript
+* 易学
+* 免安装
+* 跨平台
+* 前端+后端
+
+##@ browser
+* script 标签可读入测试代码
+* form 标签 post方法可提交文本（被测试代码）
+
+##workshop 
+* 重点在于训练数学思维
+* 针对非IT专业、中小学生
+]
+
+???
+###script定义和用法
+- script 标签用于定义客户端脚本，比如 JavaScript。
+- script 元素既可以包含脚本语句，也可以通过 src 属性指向外部脚本文件。
+- 必需的 type 属性规定脚本的 MIME 类型。
+- script 标签支持 HTML 中的全局属性。
+###form
+- form 标签用于为用户输入创建 HTML 表单。
+- 表单能够包含 input 元素，比如文本字段、复选框、单选框、提交按钮等等。
+- 表单还可以包含 menus、textarea、fieldset、legend 和 label 元素。
+- 表单用于向服务器传输数据。
+- form 标签支持 HTML 中的全局属性。
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+#### 模式一
+#### 模式二
+#### 模式特点
+#### 扩展
+]
+.right-column[
+
+IT专业高校学生的实训需要：
+
+##js以外的教学语言
+* 需要安装配置
+* 编译 vs. 解释
+
+##更复杂的业务逻辑
+* 更复杂的接口
+* 状态相关的调用时序
+
+##更前沿的教学内容
+* 更高成本的任务设计和课程制作
+* 专业的一线工程师
+]
+---
+.left-column[
+ ### 测试框架
+#### ITW框架
+#### 模式一
+#### 模式二
+#### 模式特点
+#### 扩展
+#### 新模式
+]
+.right-column[
+<img src="img/method3.png" width=512></img>
+]
+???
+##运行环境
+1. 通用型：能够完成代码编译（可选）、运行，并为学院作品提供存储、事件驱动等机制。
+2. 任务专用：每个任务分别扩展基础代码，增加该任务专用的本地功能。
+
+##检测代码
+1. 按照业务逻辑调用学员作品，分析返回值给出报告。
+2. 使用http连接（GET\PUT\POST\DELETE等）定义任务。
+
+---
+class: center, middle, inverse
+#编译语言
+---
+.left-column[
+ ### 编译语言
+#### 实训组编译
+]
+.right-column[]
+---
+.left-column[
+ ### 编译语言
+#### 实训组编译
+#### 学员编译
+]
+.right-column[]
+---
+.left-column[
+ ### 编译语言
+#### 实训组编译
+#### 学员编译
+#### 选型建议
+]
+.right-column[]
+---
+class: center, middle, inverse
+#解释语言
+---
+class: center, middle, inverse
+#测试结果
+---
+class: center, middle, inverse
+#项目计划
+    </textarea>
+    <script src="js/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
