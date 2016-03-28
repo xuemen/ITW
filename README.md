@@ -10,3 +10,7 @@
 3. 差异：
 	1. 高校版针对信息技术类高校学生；K12版针对非信息技术方向的中小学生。
 	2. 高校版默认由学习者担任实训组组长；K12版默认由助教担任。
+
+
+1. 本作品版权归[黄勇刚](mailto:huangyg@mars22.com)所有。
+2. 本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名 4.0 国际许可协议</a>进行许可。  
